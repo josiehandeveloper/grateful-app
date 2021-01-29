@@ -10,7 +10,7 @@ export default class Homepage extends React.Component {
         <div className="hero-section">
           <div className="hero-wrapper">
             <div className="column-left">
-              <h1>Mindful</h1>
+              <h1>Mindfulness</h1>
               <h2>Let's Practice Self-Compassion</h2>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
