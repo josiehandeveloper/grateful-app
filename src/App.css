@@ -1,0 +1,49 @@
+html {
+  font-size: 92.5%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0%;
+  font: 1rem helvetica;
+  height: 100vh;
+}
+
+.app {
+  display: grid;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 12px;
+}
+
+/*sidebar-area*/
+.sidebar-area {
+  width: 20%;
+  display: grid;
+  height: 40rem;
+  justify-content: center;
+}
+/*main-area*/
+.main-area {
+  width: 60%;
+  display: grid;
+  height: 40rem;
+}
+
+.left-sidebar {
+  width: 20%;
+  height: 40rem;
+  display: grid;
+}
+
+.footer {
+  margin-top: 8em;
+  display: flex;
+  justify-content: center;
+  padding-left: 50%;
+}

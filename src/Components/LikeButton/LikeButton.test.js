@@ -1,15 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import LikeButton from "./LikeButton";
+
 import { BrowserRouter as Router } from "react-router-dom";
-import NavBar from "./NavBar";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(
     <Router>
-      <NavBar />
+      <LikeButton />
     </Router>,
     div
   );
-  ReactDOM.unmountComponentAtNode(div);
+  ReactDOM.unmountComponentAtNode(div); //cleanup
 });

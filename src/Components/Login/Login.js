@@ -13,12 +13,15 @@ export default class Login extends React.Component {
     e.preventDefault();
     const { email, password } = e.target;
     this.setState({ error: null });
-    const user = { email: email.value, password: password.value };
+    const user = {
+      email: email.value,
+      password: password.value,
+    };
     AuthAPIService.loginUser(user)
       .then((loginResponse) => {
         TokenService.saveAuthToken(loginResponse.authToken);
 
-        this.props.history.push("/dashboard");
+        this.props.history.push("/feed");
       })
       .catch((res) => {
         this.setState({ error: res.error });

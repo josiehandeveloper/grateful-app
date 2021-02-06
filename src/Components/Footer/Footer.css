@@ -1,12 +1,12 @@
 .footer-container {
-  padding-top: 5rem;
+  padding-top: 9rem;
   display: flex;
   flex-direction: row;
   min-width: 100%;
-
-  text-align: center;
+  justify-content: center;
 }
 
 .footer-wrap {
   flex: 1;
+  justify-content: center;
 }

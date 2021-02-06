@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Mindfulness from "./Mindfulness";
-
 import { BrowserRouter as Router } from "react-router-dom";
+import SideBar from "./SideBar";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(
     <Router>
-      <Mindfulness />
+      <SideBar />
     </Router>,
     div
   );
-  ReactDOM.unmountComponentAtNode(div); //cleanup
+  ReactDOM.unmountComponentAtNode(div);
 });

@@ -1,43 +1,74 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Context from "./Context";
-import NavBar from "./Components/NavBar/NavBar";
+import SideBar from "./Components/SideBar/SideBar";
 import Homepage from "./Components/Homepage/Homepage";
+import Profile from "./Components/Profile/Profile";
 import Register from "./Components/Register/Register";
 import Login from "./Components/Login/Login";
-import Gratitude from "./Components/Mindfulness/Mindfulness";
-import List from "./Components/List/List";
+import Gratitude from "./Components/Gratitude/Gratitude";
+import Feed from "./Components/Feed/Feed";
 import Footer from "./Components/Footer/Footer";
+import PostAPIService from "./services/post-api-service";
+import "./App.css";
+import TokenService from "./services/token-service";
 
 class App extends Component {
   state = {
-    list: [
-      {
-        title: "Lorem ipsum",
-        description:
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      },
-      {
-        title: "Lorem ipsum 2",
-        description:
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur 2.",
-      },
-    ],
+    newPost: "",
+    posts: [],
+    setNewPost: (e) => this.setState({ newPost: e.target.value }),
+    // takes the current user's token and sends it to the BE to get all of their posts
+    // then puts them into state/context
+    getUserPosts: () => {
+      PostAPIService.getPosts().then((posts) => this.setState({ posts }));
+    },
+    handleSubmit: (e) => {
+      e.preventDefault();
+      if (this.state.newPost !== "") {
+        const newPost = {
+          content: this.state.newPost,
+        };
+        PostAPIService.postPost(newPost);
+        this.setState({
+          posts: [newPost, ...this.state.posts],
+          newPost: "",
+        });
+      }
+    },
+    addLike: (post_id) => {
+      const post = this.state.posts.find((p) => p.id === post_id) || {};
+      post.likes ? post.likes++ : (post.likes = 1);
+      // postapiservice.savelike(post.id,post.likes)
+      this.setState({
+        posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
+      });
+    },
   };
+
+  componentDidMount() {
+    if (TokenService.hasAuthToken()) {
+      this.state.getUserPosts();
+    }
+  }
   render() {
     return (
       <Context.Provider value={this.state}>
         <div className="App">
-          <div className="header">
-            <Route path="/" component={NavBar} />
+          <div className="main">
+            <div className="sidebar-area">
+              <Route path="/" component={SideBar} />
+            </div>
+            <div className="main-area">
+              <Route exact path="/" component={Homepage} />
+              <Route path="/feed" component={Gratitude} />
+              <Route path="/feed" component={Feed} />
+              <Route path="/register" component={Register} />
+              <Route path="/login" component={Login} />
+              <Route path="/dashboard" component={Profile} />
+            </div>
+            <div className="left-sidebar"></div>
           </div>
-          <main>
-            <Route exact path="/" component={Homepage} />
-            <Route path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route path="/dashboard" component={Gratitude} />
-            <Route path="/list" component={List} />
-          </main>
           <div className="footer">
             <Route path="/" component={Footer} />
           </div>
