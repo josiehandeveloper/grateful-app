@@ -1,0 +1,54 @@
+.navbar {
+  display: flex;
+  max-width: 250px;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.navbar-logo {
+  font-size: 30px;
+  margin-left: 20px;
+  padding-bottom: 5rem;
+}
+
+ul li {
+  display: flex;
+  padding: 19px;
+  list-style-type: none;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: black;
+}
+
+i {
+  display: flex;
+  font-size: 1.5rem;
+  padding-right: 5px;
+  padding-bottom: 10px;
+  color: black;
+}
+
+.logout {
+  color: black;
+}
+
+.notifications {
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+}
+
+.mobile-icon {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .sidebar-links {
+    display: none;
+  }
+}

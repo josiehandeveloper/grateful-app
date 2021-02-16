@@ -1,18 +1,54 @@
 .gratitude {
   display: flex;
-  width: 60%;
+  flex-direction: column;
 }
 
-.gratitudeBox {
+.gratitude_box {
   margin-top: 5rem;
-  align-items: center;
   width: 500px;
   height: 200px;
   padding: 20px 30px;
   border-radius: 0px;
-  box-shadow: 0px 2px 5px #555;
+  box-shadow: 0px 1px 3px #555;
   background-color: #ffffff;
 }
+
+.gratitude_box > form {
+  flex-direction: column;
+}
+
+.gratitude_input {
+  padding: 20px;
+  display: flex;
+}
+
+.gratitude_input > input {
+  flex: 1;
+  margin-left: 20px;
+  font-size: 20px;
+  border: none;
+}
+
+.gratitude_btn {
+  display: flex;
+  border-radius: 10px;
+  border: 1px #a8978c;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  padding: 8px 0px;
+  font-size: 1em;
+  font-weight: 100;
+  letter-spacing: 1px;
+  margin-bottom: 0.25em;
+  cursor: pointer;
+  transition: color 250ms;
+  background-color: #a8978c;
+}
+
+/* 
+
 .gratitude {
   display: grid;
 }
@@ -31,4 +67,4 @@
   margin-bottom: 0.25em;
   cursor: pointer;
   transition: color 250ms;
-}
+} */

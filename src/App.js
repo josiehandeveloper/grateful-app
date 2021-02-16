@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import Context from "./Context";
-import SideBar from "./Components/SideBar/SideBar";
+import Nav from "./Components/Nav/Nav";
 import Homepage from "./Components/Homepage/Homepage";
 import Profile from "./Components/Profile/Profile";
 import Register from "./Components/Register/Register";
+import Notification from "./Components/Notifications/Notifications";
 import Login from "./Components/Login/Login";
 import Gratitude from "./Components/Gratitude/Gratitude";
 import Feed from "./Components/Feed/Feed";
@@ -17,6 +18,7 @@ class App extends Component {
   state = {
     newPost: "",
     posts: [],
+    likes: "",
     setNewPost: (e) => this.setState({ newPost: e.target.value }),
     // takes the current user's token and sends it to the BE to get all of their posts
     // then puts them into state/context
@@ -39,7 +41,7 @@ class App extends Component {
     addLike: (post_id) => {
       const post = this.state.posts.find((p) => p.id === post_id) || {};
       post.likes ? post.likes++ : (post.likes = 1);
-      // postapiservice.savelike(post.id,post.likes)
+      PostAPIService.saveLikes(post.id, post.likes);
       this.setState({
         posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
       });
@@ -55,23 +57,21 @@ class App extends Component {
     return (
       <Context.Provider value={this.state}>
         <div className="App">
-          <div className="main">
-            <div className="sidebar-area">
-              <Route path="/" component={SideBar} />
+          <div className="Main">
+            <div className="Sidebar_Area">
+              <Route path="/" component={Nav} />
             </div>
-            <div className="main-area">
+            <div className="Main_Area">
               <Route exact path="/" component={Homepage} />
               <Route path="/feed" component={Gratitude} />
               <Route path="/feed" component={Feed} />
+              <Route path="/notification" component={Notification} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
               <Route path="/dashboard" component={Profile} />
             </div>
-            <div className="left-sidebar"></div>
           </div>
-          <div className="footer">
-            <Route path="/" component={Footer} />
-          </div>
+          <Route path="/" component={Footer} />
         </div>
       </Context.Provider>
     );

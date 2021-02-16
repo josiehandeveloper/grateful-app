@@ -1,9 +1,27 @@
+.gratitude_feed {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .post {
   align-items: center;
   width: 500px;
   height: 80px;
   padding: 10px 30px;
+  padding-bottom: 25px;
   border-radius: 0px;
-  box-shadow: 0px 2px 5px #555;
+  box-shadow: 0px 1px 5px #555;
   background-color: #ffffff;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and FireFox */
+.feed {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /*Firefox */
 }

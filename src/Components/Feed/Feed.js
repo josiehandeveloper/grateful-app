@@ -5,12 +5,12 @@ import "./Feed.css";
 export default class Feed extends React.Component {
   static contextType = Context;
   render() {
-    const posts = this.context.posts;
+    const { posts = [] } = this.context || [];
     return (
-      <div className="posts">
+      <div className="gratitude_feed">
         <div className="posts-container">
-          {posts.map((post, i) => (
-            <div className="post" key={i}>
+          {posts.map((post) => (
+            <div className="post" key={post.id}>
               <p>{post.content}</p>
               {
                 <button onClick={() => this.context.addLike(post.id)}>
