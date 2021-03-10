@@ -41,7 +41,7 @@ class App extends Component {
     addLike: (post_id) => {
       const post = this.state.posts.find((p) => p.id === post_id) || {};
       post.likes ? post.likes++ : (post.likes = 1);
-      PostAPIService.saveLikes(post.id, post.likes);
+      PostAPIService.postLikes(post.id, post.likes);
       this.setState({
         posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
       });
@@ -57,21 +57,21 @@ class App extends Component {
     return (
       <Context.Provider value={this.state}>
         <div className="App">
-          <div className="Main">
-            <div className="Sidebar_Area">
-              <Route path="/" component={Nav} />
-            </div>
-            <div className="Main_Area">
-              <Route exact path="/" component={Homepage} />
-              <Route path="/feed" component={Gratitude} />
-              <Route path="/feed" component={Feed} />
-              <Route path="/notification" component={Notification} />
-              <Route path="/register" component={Register} />
-              <Route path="/login" component={Login} />
-              <Route path="/dashboard" component={Profile} />
-            </div>
+          <div className="Nav">
+            <Route path="/" component={Nav} />
           </div>
-          <Route path="/" component={Footer} />
+          <main>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/feed" component={Gratitude} />
+            <Route path="/feed" component={Feed} />
+            <Route path="/notification" component={Notification} />
+            <Route path="/register" component={Register} />
+            <Route path="/login" component={Login} />
+            <Route path="/dashboard" component={Profile} />
+          </main>
+          <div className="Footer">
+            <Route path="/" component={Footer} />
+          </div>
         </div>
       </Context.Provider>
     );

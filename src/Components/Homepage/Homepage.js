@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import homepage from "../../images/homepage.png";
 import "./Homepage.css";
 
 class Homepage extends Component {
@@ -7,11 +6,10 @@ class Homepage extends Component {
     return (
       <div className="homepage">
         <div className="container">
-          <img src={homepage} alt="homepage" width={1500} />
           <h1>Welcome to Grateful</h1>
-
+        </div>
+        <div className="about">
           <h2>About</h2>
-
           <ul>
             <li>
               grat·i·tude /ˈɡradəˌt(y)o͞od/ the quality of being thankful;

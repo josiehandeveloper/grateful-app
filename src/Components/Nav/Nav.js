@@ -11,67 +11,50 @@ export default class Nav extends Component {
   };
   render() {
     return (
-      <div className="navbar">
-        <ul>
-          <li>
-            <Link to="/" className="navbar-logo">
+      <div className="nav">
+        <div className="nav-logo">
+          {TokenService.hasAuthToken() ? (
+            <Link to="/feed" className="feed">
               <i className="fas fa-hands" />
             </Link>
-          </li>
-          <div className="sidebar-feed">
-            {TokenService.hasAuthToken() ? (
-              <li>
-                <Link to="/feed" className="feed">
-                  <i className="fas fa-home"></i> Feed
-                </Link>
-              </li>
-            ) : (
-              <li>
-                <Link to="/" className="home">
-                  <i className="fas fa-home"></i> Home
-                </Link>
-              </li>
-            )}
-            {TokenService.hasAuthToken() ? (
-              <div className="authLinks">
-                <li>
-                  <a
-                    className="logout"
-                    type="submit"
-                    href="/logout"
-                    onClick={(e) => this.logout(e)}
-                  >
-                    <i className="fas fa-sign-out-alt"></i> Logout
-                  </a>
-                </li>
-                <li>
-                  <Link to="/notification" className="notifications">
-                    <i className="far fa-bell"></i> Notifications
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/dashboard" className="profile">
-                    <i className="fas fa-user-alt"></i>Profile
-                  </Link>
-                </li>
-              </div>
-            ) : (
-              <div className="navbar-authlinks">
-                <li>
-                  <Link to="/login" className="login">
-                    <i className="fas fa-sign-in-alt"></i> Login
-                  </Link>
-                </li>
+          ) : (
+            <Link to="/" className="home">
+              <i className="fas fa-hands"></i>
+            </Link>
+          )}
+        </div>
+        <div className="nav-links">
+          {TokenService.hasAuthToken() ? (
+            <div className="logout">
+              <a
+                className="logout"
+                type="submit"
+                href="/logout"
+                onClick={(e) => this.logout(e)}
+              >
+                <i className="fas fa-sign-out-alt"></i> Logout
+              </a>
 
-                <li>
-                  <Link to="/register" className="register">
-                    <i className="fas fa-user-plus"></i> Register
-                  </Link>
-                </li>
-              </div>
-            )}
-          </div>
-        </ul>
+              <Link to="/notification" className="notifications">
+                <i className="far fa-bell"></i> Notifications
+              </Link>
+
+              <Link to="/dashboard" className="profile">
+                <i className="fas fa-user-alt"></i>Profile
+              </Link>
+            </div>
+          ) : (
+            <div className="nav-authlinks">
+              <Link to="/login" className="login">
+                <i className="fas fa-sign-in-alt"></i> Login
+              </Link>
+
+              <Link to="/register" className="register">
+                <i className="fas fa-user-plus"></i> Register
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

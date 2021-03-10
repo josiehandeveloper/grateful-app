@@ -33,15 +33,15 @@ export default class Register extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="form-wrapper">
-          <form onSubmit={this.handleSubmit} className="form-container">
+      <div className="register-form">
+        <div className="register-form-wrapper">
+          <form onSubmit={this.handleSubmit}>
             {this.state.error && <p className="error">{this.state.error}</p>}
             <h1>Register</h1>
 
             <label htmlFor="register_username">USERNAME</label>
             <input
-              className="username"
+              className="register_username"
               type="username"
               id="register_username"
               name="username"

@@ -1,10 +1,18 @@
 .gratitude {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: -9rem;
+}
+
+.gratitude h1 {
+  display: flex;
+  flex-direction: column;
 }
 
 .gratitude_box {
-  margin-top: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   width: 500px;
   height: 200px;
   padding: 20px 30px;
@@ -46,25 +54,3 @@
   transition: color 250ms;
   background-color: #a8978c;
 }
-
-/* 
-
-.gratitude {
-  display: grid;
-}
-.input {
-  width: 100%;
-}
-.submit {
-  border-radius: 10px;
-  border: 1px solid;
-  width: 100%;
-  margin-top: 1em;
-  padding: 8px 0px;
-  font-size: 1em;
-  font-weight: lighter;
-  letter-spacing: 1px;
-  margin-bottom: 0.25em;
-  cursor: pointer;
-  transition: color 250ms;
-} */

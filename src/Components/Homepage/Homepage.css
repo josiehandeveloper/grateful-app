@@ -1,56 +1,47 @@
-.homepage {
+.container {
   display: flex;
   flex-direction: column;
-  margin-top: -22rem;
-  margin-left: -5rem;
+  height: 75vh;
+  position: relative;
+  background-image: url(../../images/homepage.png);
+  background-position: center;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
 }
 
 .container h1 {
   color: white;
-  position: absolute;
   font-family: Lato;
   font-size: 60px;
   letter-spacing: 4px;
   text-align: left;
-  margin-top: -49.5rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
+  margin-top: -33rem;
   font-weight: 200;
 }
 
-.container h2 {
+.about h2 {
   color: #a8978c;
-  position: absolute;
   font-family: Lato;
   font-size: 60px;
   letter-spacing: 4px;
   text-align: left;
-  margin-top: 5rem;
   font-weight: 200;
 }
 
-.container img {
-  margin-top: 23rem;
-}
-
-.about {
-  margin-top: 4rem;
-  margin-left: -4rem;
-  margin-bottom: 4rem;
-}
-
-.container ul li {
+.about ul li {
   font-size: 30px;
-  font-weight: 100;
+  font-weight: 200;
 }
 
-.container ul {
-  padding-top: 11rem;
-  padding-bottom: 3rem;
-}
-
-.container li {
-  font-size: 30px;
+.about ul {
   margin-left: -4rem;
+  padding-right: 7rem;
+}
+
+.about li {
+  font-size: 30px;
   font-weight: 100;
 }
 
@@ -63,20 +54,41 @@
     flex-direction: column;
     height: 75vh;
     position: relative;
-    /* background-image: url(../../images/homepage.png); */
+    background-image: url(../../images/homepage.png);
     background-position: center;
     padding: 0;
     margin: 0;
     overflow-x: hidden;
   }
+  .img {
+    height: 50vh;
+    width: 500px;
+  }
   .container h1 {
     color: white;
     position: absolute;
     font-family: Lato;
-    font-size: 40px;
+    font-size: 30px;
     letter-spacing: 4px;
     text-align: left;
     margin-right: auto;
     margin-top: 2rem;
+  }
+  .about h2 {
+    color: #a8978c;
+    font-family: Lato;
+    font-size: 30px;
+    letter-spacing: 4px;
+    text-align: center;
+    font-weight: 200;
+  }
+
+  .about ul li {
+    font-size: 15px;
+    font-weight: 200;
+  }
+
+  .about ul {
+    margin-left: -4rem;
   }
 }
