@@ -3,7 +3,7 @@ import TokenService from "./token-service";
 
 const PostAPIService = {
   postPost(post) {
-    return fetch(`${config.API_BASE_URL}/feed`, {
+    return fetch(`${config.API_ENDPOINT}/feed`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
@@ -15,7 +15,7 @@ const PostAPIService = {
     );
   },
   getPosts() {
-    return fetch(`${config.API_BASE_URL}/feed`, {
+    return fetch(`${config.API_ENDPOINT}/feed`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
@@ -26,7 +26,7 @@ const PostAPIService = {
     );
   },
   getLikes(postId) {
-    return fetch(`${config.API_BASE_URL}/feed`, {
+    return fetch(`${config.API_ENDPOINT}/feed`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
@@ -37,7 +37,7 @@ const PostAPIService = {
     );
   },
   postLikes(likeId) {
-    return fetch(`${config.API_BASE_URL}/feed`, {
+    return fetch(`${config.API_ENDPOINT}/feed`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
