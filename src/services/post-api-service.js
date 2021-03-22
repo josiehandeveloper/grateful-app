@@ -60,16 +60,16 @@ const PostAPIService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  deletePost(postId) {
-    return fetch(`${config.API_ENDPOINT}/api/feed`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${TokenService.getAuthToken()}`,
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ post_id: postId }),
-    }).then(() => 
-    )
+  // deletePost(postId) {
+  //   return fetch(`${config.API_ENDPOINT}/api/feed`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       Authorization: `Bearer ${TokenService.getAuthToken()}`,
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify({ post_id: postId }),
+  //   }).then(() => 
+  //   )
   },
 };
 
