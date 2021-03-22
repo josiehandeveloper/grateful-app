@@ -28,16 +28,19 @@
   letter-spacing: 4px;
   text-align: left;
   font-weight: 200;
+  padding-left: 5rem;
 }
 
 .about ul li {
   font-size: 30px;
   font-weight: 200;
+  padding-bottom: 3rem;
+  list-style: none;
 }
 
 .about ul {
-  margin-left: -4rem;
-  padding-right: 7rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 
 .about li {
