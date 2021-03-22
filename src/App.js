@@ -13,6 +13,7 @@ import Footer from "./Components/Footer/Footer";
 import PostAPIService from "./services/post-api-service";
 import "./App.css";
 import TokenService from "./services/token-service";
+import config from "./config";
 
 class App extends Component {
   state = {
