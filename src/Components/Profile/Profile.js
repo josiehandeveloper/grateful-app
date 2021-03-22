@@ -5,12 +5,12 @@ import "./Profile.css";
 export default class Profile extends React.Component {
   static contextType = Context;
   render() {
-    const { profposts = [] } = this.context || [];
+    const { posts = [] } = this.context || [];
     return (
       <div className="posts">
         <h1>Welcome</h1>
         <div className="posts-container">
-          {profposts.map((post) => (
+          {posts.map((post) => (
             <div className="post" key={post.id}>
               <p>{post.content}</p>
             </div>

@@ -23,7 +23,30 @@ class App extends Component {
     // takes the current user's token and sends it to the BE to get all of their posts
     // then puts them into state/context
     getUserPosts: () => {
-      PostAPIService.getPosts().then((posts) => this.setState({ posts }));
+      return fetch(`${config.API_ENDPOINT}/api/dashboard`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((posts) => {
+          this.setState({ posts });
+        });
+    },
+    getPosts: () => {
+      return fetch(`${config.API_ENDPOINT}/api/feed`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+          "content-type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((posts) => {
+          this.setState({ posts });
+        });
     },
     handleSubmit: (e) => {
       e.preventDefault();
@@ -51,6 +74,7 @@ class App extends Component {
   componentDidMount() {
     if (TokenService.hasAuthToken()) {
       this.state.getUserPosts();
+      this.state.getPosts();
     }
   }
   render() {
