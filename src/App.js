@@ -17,13 +17,16 @@ import TokenService from "./services/token-service";
 class App extends Component {
   state = {
     newPost: "",
+    profposts: [],
     posts: [],
     likes: "",
     setNewPost: (e) => this.setState({ newPost: e.target.value }),
     // takes the current user's token and sends it to the BE to get all of their posts
     // then puts them into state/context
     getUserPosts: () => {
-      PostAPIService.getUserPosts().then((posts) => this.setState({ posts }));
+      PostAPIService.getUserPosts().then((profposts) =>
+        this.setState({ profposts })
+      );
     },
     handleSubmit: (e) => {
       e.preventDefault();

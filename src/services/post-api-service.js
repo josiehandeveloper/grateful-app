@@ -25,7 +25,7 @@ const PostAPIService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-    getUserPosts() {
+  getUserPosts() {
     return fetch(`${config.API_ENDPOINT}/api/dashboard`, {
       method: "GET",
       headers: {
@@ -68,9 +68,9 @@ const PostAPIService = {
   //       "content-type": "application/json",
   //     },
   //     body: JSON.stringify({ post_id: postId }),
-  //   }).then(() => 
+  //   }).then(() =>
   //   )
-  },
+  // },
 };
 
 export default PostAPIService;
