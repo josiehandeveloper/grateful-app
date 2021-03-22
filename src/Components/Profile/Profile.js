@@ -12,7 +12,7 @@ export default class Profile extends React.Component {
         <div className="posts-container">
           {profposts.map((post) => (
             <div className="post" key={post.id}>
-              <p>{profpost.content}</p>
+              <p>{post.content}</p>
             </div>
           ))}
         </div>
