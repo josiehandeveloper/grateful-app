@@ -23,7 +23,7 @@ class App extends Component {
     // takes the current user's token and sends it to the BE to get all of their posts
     // then puts them into state/context
     getUserPosts: () => {
-      PostAPIService.getPosts().then((posts) => this.setState({ posts }));
+      PostAPIService.getUserPosts().then((posts) => this.setState({ posts }));
     },
     handleSubmit: (e) => {
       e.preventDefault();
