@@ -14,7 +14,7 @@ export default class Profile extends React.Component {
             <div className="post" key={post.id}>
               <p>{post.content}</p>
               <button
-                className="deletebtn"
+                className="delete_btn"
                 onClick={() => this.context.deletePost(post.id)}
               >
                 Delete

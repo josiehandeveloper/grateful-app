@@ -53,4 +53,5 @@
   cursor: pointer;
   transition: color 250ms;
   background-color: #a8978c;
+  padding-left: 2rem;
 }
