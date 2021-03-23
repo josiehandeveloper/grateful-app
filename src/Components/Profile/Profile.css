@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: -9rem;
+  margin-bottom: 2rem;
 }
 
 .delete_btn {
