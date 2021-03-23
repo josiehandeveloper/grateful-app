@@ -13,6 +13,12 @@ export default class Profile extends React.Component {
           {posts.map((post) => (
             <div className="post" key={post.id}>
               <p>{post.content}</p>
+              <button
+                className="deletebtn"
+                onClick={() => this.context.deletePost(post.id)}
+              >
+                Delete
+              </button>
             </div>
           ))}
         </div>

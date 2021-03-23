@@ -70,6 +70,20 @@ class App extends Component {
         posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
       });
     },
+    deletePost: (postId) => {
+      fetch(`${config.API_ENDPOINT}/api/dashboard`, {
+        headers: {
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+          "Content-Type": "application/json",
+        },
+        method: "DELETE",
+        body: JSON.stringify({ post_id: postId }),
+      }).then(() => {
+        this.setState({
+          posts: this.state.posts.filter((p) => p.id !== postId),
+        });
+      });
+    },
   };
 
   componentDidMount() {
