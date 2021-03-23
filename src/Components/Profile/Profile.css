@@ -1,8 +1,12 @@
-.posts {
-  display: flex;
-  flex-direction: column;
+.post {
   align-items: center;
-  margin-top: -9rem;
+  width: 450px;
+  height: 100px;
+  padding: 10px 30px;
+  border-radius: 0px;
+  box-shadow: 0px 1px 5px #555;
+  background-color: #ffffff;
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
