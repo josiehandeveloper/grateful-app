@@ -1,4 +1,5 @@
 .posts {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,18 +11,17 @@
   display: flex;
   border-radius: 10px;
   border: 1px #a8978c;
-  width: 70%;
+  width: 20%;
   align-items: center;
   justify-content: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding: 8px 0px;
-  font-size: 1em;
+  margin-top: 1.5em;
+  margin-left: 11rem;
+  padding: 7px 0px;
+  font-size: 0.9em;
   font-weight: 100;
   letter-spacing: 1px;
-  margin-bottom: 0.25em;
   cursor: pointer;
   transition: color 250ms;
   background-color: #a8978c;
-  padding-left: 2rem;
+  padding-left: 0.5rem;
 }
