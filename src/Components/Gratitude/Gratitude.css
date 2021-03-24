@@ -15,8 +15,8 @@
   margin-bottom: 2rem;
   width: 450px;
   height: 200px;
-  padding: 20px 30px;
-  border-radius: 0px;
+  padding: 15px 25px;
+  border-radius: 5px;
   box-shadow: 0px 1px 3px #555;
   background-color: #ffffff;
 }
@@ -26,7 +26,7 @@
 }
 
 .gratitude_input {
-  padding: 20px;
+  padding: 26px;
   display: flex;
 }
 
@@ -45,6 +45,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 1em;
+  margin-left: 3.5em;
   padding: 8px 0px;
   font-size: 1em;
   font-weight: 100;
@@ -53,5 +54,5 @@
   cursor: pointer;
   transition: color 250ms;
   background-color: #a8978c;
-  padding-left: 2rem;
+  padding-left: 0.5rem;
 }

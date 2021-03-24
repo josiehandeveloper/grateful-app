@@ -33,7 +33,7 @@ export default class Register extends React.Component {
 
   render() {
     return (
-      <div className="register-form">
+      <div className="wrapper">
         <div className="register-form-wrapper">
           <form onSubmit={this.handleSubmit}>
             {this.state.error && <p className="error">{this.state.error}</p>}

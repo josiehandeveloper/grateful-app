@@ -1,5 +1,6 @@
 .nav {
-  padding-top: 0.5rem;
+  padding-top: 0.7rem;
+  padding-bottom: 8em;
   display: flex;
   justify-content: space-between;
   font-family: "Lato", sans-serif;
@@ -16,7 +17,8 @@
 }
 
 .nav-links {
-  padding: 30px;
+  padding-top: 1rem;
+  padding-right: 2rem;
   font-family: "lato", sans-serif;
   font-weight: 400;
   font-size: 18px;
