@@ -30,7 +30,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="wrapper">
         <div className="form-wrapper">
           <h1>Login</h1>
           <form className="login_form" onSubmit={this.handleLogin}>
