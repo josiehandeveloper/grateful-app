@@ -39,7 +39,7 @@ class App extends Component {
         };
         PostAPIService.postPost(newPost);
         this.setState({
-          posts: [newPost, ...this.state.posts],
+          feed: [newPost, ...this.state.posts],
           newPost: "",
         });
       }
@@ -47,9 +47,11 @@ class App extends Component {
     addLike: (post_id) => {
       const post = this.state.posts.find((p) => p.id === post_id) || {};
       post.likes ? post.likes++ : (post.likes = 1);
-      PostAPIService.postLikes(post.id, post.likes);
+      console.log("test", { post });
+      PostAPIService.postLikes(post_id, post.likes);
       this.setState({
         posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
+        feed: this.state.posts.map((p) => (p.id === post_id ? post : p)),
       });
     },
     deletePost: (postId) => {
@@ -63,6 +65,7 @@ class App extends Component {
       }).then(() => {
         this.setState({
           posts: this.state.posts.filter((p) => p.id !== postId),
+          feed: this.state.posts.filter((p) => p.id !== postId),
         });
       });
     },
@@ -86,6 +89,7 @@ class App extends Component {
             <Route path="/feed" component={Gratitude} />
             <Route path="/feed" component={Feed} />
             <Route path="/notification" component={Notification} />
+
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/dashboard" component={Profile} />
