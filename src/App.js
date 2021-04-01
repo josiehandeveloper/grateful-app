@@ -5,7 +5,6 @@ import Nav from "./Components/Nav/Nav";
 import Homepage from "./Components/Homepage/Homepage";
 import Profile from "./Components/Profile/Profile";
 import Register from "./Components/Register/Register";
-import Notification from "./Components/Notifications/Notifications";
 import Login from "./Components/Login/Login";
 import Gratitude from "./Components/Gratitude/Gratitude";
 import Feed from "./Components/Feed/Feed";
@@ -30,6 +29,9 @@ class App extends Component {
     getUserPosts: () => {
       PostAPIService.getUserPosts().then((posts) => this.setState({ posts }));
     },
+    getPostLikes: () => {
+      PostAPIService.getPostLikes().then((likes) => this.setState({ likes }));
+    },
 
     handleSubmit: (e) => {
       e.preventDefault();
@@ -44,14 +46,23 @@ class App extends Component {
         });
       }
     },
-    addLike: (post_id) => {
+    addLike: (post_id, count, user_id) => {
+      console.log(count);
       const post = this.state.posts.find((p) => p.id === post_id) || {};
-      post.likes ? post.likes++ : (post.likes = 1);
-      console.log("test", { post });
-      PostAPIService.postLikes(post_id, post.likes);
-      this.setState({
-        posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
-        feed: this.state.posts.map((p) => (p.id === post_id ? post : p)),
+      // post.likes ? post.likes++ : (post.likes = 1);
+      // PostAPIService.postLikes(post_id, likes, user_id);
+      fetch(`${config.API_ENDPOINT}/api/likes`, {
+        headers: {
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({ post_id, count, user_id }),
+      }).then((res) => {
+        this.setState({
+          posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
+          feed: this.state.posts.map((p) => (p.id === post_id ? post : p)),
+        });
       });
     },
     deletePost: (postId) => {
@@ -75,6 +86,7 @@ class App extends Component {
     if (TokenService.hasAuthToken()) {
       this.state.getPosts();
       this.state.getUserPosts();
+      this.state.getPostLikes();
     }
   }
   render() {
@@ -88,7 +100,6 @@ class App extends Component {
             <Route exact path="/" component={Homepage} />
             <Route path="/feed" component={Gratitude} />
             <Route path="/feed" component={Feed} />
-            <Route path="/notification" component={Notification} />
 
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />

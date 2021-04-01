@@ -35,10 +35,6 @@ export default class Nav extends Component {
                 <i className="fas fa-sign-out-alt"></i> Logout
               </a>
 
-              <Link to="/notification" className="notifications">
-                <i className="far fa-bell"></i> Notifications
-              </Link>
-
               <Link to="/dashboard" className="profile">
                 <i className="fas fa-user-alt"></i>Profile
               </Link>

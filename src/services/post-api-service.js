@@ -2,14 +2,14 @@ import config from "../config";
 import TokenService from "./token-service";
 
 const PostAPIService = {
-  postPost(post) {
+  postPost(post, user_id) {
     return fetch(`${config.API_ENDPOINT}/api/feed`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         "content-type": "application/json",
       },
-      body: JSON.stringify(post),
+      body: JSON.stringify(post, user_id),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -36,8 +36,8 @@ const PostAPIService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  getLikes(postId) {
-    return fetch(`${config.API_ENDPOINT}/api/feed`, {
+  getPostLikes(postId) {
+    return fetch(`${config.API_ENDPOINT}/api/likes`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
@@ -47,17 +47,15 @@ const PostAPIService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  postLikes(postId, count) {
-    console.log("test", { postId });
-    return fetch(`${config.API_ENDPOINT}/api/likes`, {
-      method: "POST",
+  postLikes(post_id, count, user_id) {
+    console.log(count);
+    fetch(`${config.API_ENDPOINT}/api/likes`, {
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        post_id: postId,
-        count,
-      }),
+      method: "POST",
+      body: JSON.stringify({ post_id, count, user_id }),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );

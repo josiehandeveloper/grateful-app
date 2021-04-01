@@ -5,17 +5,16 @@ import "./Likes.css";
 export default class Likes extends React.Component {
   static contextType = Context;
   render() {
-    const { post, like } = this.context;
-    console.log("test");
+    const { likes } = this.context;
     return (
       <div className="likes">
         <div className="likes-btn">
-          {
-            <button onClick={() => this.context.addLike(post.id, like.likes)}>
+          {likes.map((like) => (
+            <button onClick={() => this.context.addLike(like.count)}>
               <i className="far fa-thumbs-up"></i>
-              Likes: {like.likes}
+              Likes: {like.count}
             </button>
-          }
+          ))}
         </div>
       </div>
     );
