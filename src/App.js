@@ -39,30 +39,23 @@ class App extends Component {
         const newPost = {
           content: this.state.newPost,
         };
-        PostAPIService.postPost(newPost);
-        this.setState({
-          feed: [newPost, ...this.state.posts],
-          newPost: "",
+        PostAPIService.postPost(newPost).then((data) => {
+          newPost.likes = 1;
+          console.log(data);
+          this.setState({
+            feed: [data, ...this.state.posts],
+            newPost: "",
+          });
+          console.log(data);
         });
       }
     },
-    addLike: (post_id, count, user_id) => {
-      console.log(count);
+    addLike: (post_id, likes, user_id) => {
       const post = this.state.posts.find((p) => p.id === post_id) || {};
       // post.likes ? post.likes++ : (post.likes = 1);
-      // PostAPIService.postLikes(post_id, likes, user_id);
-      fetch(`${config.API_ENDPOINT}/api/likes`, {
-        headers: {
-          Authorization: `Bearer ${TokenService.getAuthToken()}`,
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({ post_id, count, user_id }),
-      }).then((res) => {
-        this.setState({
-          posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
-          feed: this.state.posts.map((p) => (p.id === post_id ? post : p)),
-        });
+      PostAPIService.postLikes(post_id, likes, user_id);
+      this.setState({
+        posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
       });
     },
     deletePost: (postId) => {
@@ -86,7 +79,7 @@ class App extends Component {
     if (TokenService.hasAuthToken()) {
       this.state.getPosts();
       this.state.getUserPosts();
-      this.state.getPostLikes();
+      // this.state.getPostLikes();
     }
   }
   render() {

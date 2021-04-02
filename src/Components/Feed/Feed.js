@@ -21,15 +21,16 @@ export default class Feed extends React.Component {
           {feed.map((post) => (
             <div className="post" key={post.id}>
               <p>{post.content}</p>
-              {console.log(post)}
 
               {
                 <button
                   className="like-btn"
                   onClick={() => {
                     const like = post.likes++;
+                    console.log(post);
+                    console.log(like);
                     this.context.addLike(post.id, like, post.user_id);
-                    this.context.getPostLikes();
+                    // this.context.getPostLikes();
                   }}
                 >
                   <i className="far fa-thumbs-up"></i>

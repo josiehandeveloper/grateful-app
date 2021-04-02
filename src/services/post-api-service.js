@@ -36,8 +36,8 @@ const PostAPIService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  getPostLikes(postId) {
-    return fetch(`${config.API_ENDPOINT}/api/likes`, {
+  getPostLikes(post_id) {
+    return fetch(`${config.API_ENDPOINT}/api/feed/:post_id/likes`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
@@ -47,15 +47,14 @@ const PostAPIService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  postLikes(post_id, count, user_id) {
-    console.log(count);
-    fetch(`${config.API_ENDPOINT}/api/likes`, {
+  postLikes(post_id, likes, user_id) {
+    fetch(`${config.API_ENDPOINT}/api/feed/${post_id}/likes`, {
       headers: {
         Authorization: `Bearer ${TokenService.getAuthToken()}`,
         "Content-Type": "application/json",
       },
-      method: "POST",
-      body: JSON.stringify({ post_id, count, user_id }),
+      method: "PATCH",
+      body: JSON.stringify({ post_id, likes, user_id }),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
