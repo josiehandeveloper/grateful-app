@@ -8,8 +8,7 @@ export default class Feed extends React.Component {
   static contextType = Context;
   componentDidMount() {
     if (TokenService.hasAuthToken()) {
-      PostAPIService.getPosts();
-      PostAPIService.getPostLikes();
+      // PostAPIService.getPostLikes();
     }
   }
   render() {
@@ -18,18 +17,20 @@ export default class Feed extends React.Component {
     return (
       <div className="gratitude_feed">
         <div className="posts-container">
-          {feed.map((post) => (
+          {feed.map((post, key) => (
             <div className="post" key={post.id}>
               <p>{post.content}</p>
 
               {
                 <button
+                  key={key}
                   className="like-btn"
                   onClick={() => {
-                    const like = post.likes++;
-                    console.log(post);
-                    console.log(like);
-                    this.context.addLike(post.id, like, post.user_id);
+                    // const like = post.likes + 1;
+                    // console.log(post);
+                    // console.log(like);
+                    this.context.addLike(post.id, post.likes, post.user_id);
+                    // PostAPIService.getPosts();
                     // this.context.getPostLikes();
                   }}
                 >

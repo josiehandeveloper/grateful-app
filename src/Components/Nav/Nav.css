@@ -1,6 +1,6 @@
 .nav {
   padding-top: 2rem;
-  padding-bottom: 5em;
+  padding-bottom: 3em;
   display: flex;
   justify-content: space-between;
   font-family: "Lato", sans-serif;
@@ -12,7 +12,7 @@
   top: 5px;
   align-items: left;
   object-fit: contain;
-  margin-top: 1.5rem;
+  margin-top: 0.3rem;
   margin-left: 2rem;
 }
 
@@ -70,8 +70,8 @@ a:hover {
 
 @media all and (max-width: 500px) {
   .nav {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     display: flex;
     justify-content: space-between;
     font-family: "Lato", sans-serif;
@@ -84,17 +84,17 @@ a:hover {
     object-fit: contain;
     margin-left: -15px;
   }
-  .authLinks {
+  .nav-links {
     font-family: "lato", sans-serif;
-    font-weight: lighter;
+    font-weight: 400;
     font-size: 15px;
     margin-left: -5rem;
   }
-  .nav_authlink {
-    padding: 30px;
+  .nav_authlinks {
+    padding: 25px;
     font-family: Lato;
     font-weight: lighter;
-    font-size: 15px;
+    font-size: 12px;
   }
   .dashboard {
     padding-right: 10px;

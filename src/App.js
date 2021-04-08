@@ -19,12 +19,15 @@ class App extends Component {
     newPost: "",
     feed: [],
     posts: [],
-    likes: "",
+    likes: [],
     setNewPost: (e) => this.setState({ newPost: e.target.value }),
     // takes the current user's token and sends it to the BE to get all of their posts
     // then puts them into state/context
     getPosts: () => {
-      PostAPIService.getPosts().then((posts) => this.setState({ feed: posts }));
+      PostAPIService.getPosts().then((posts) => {
+        console.log(posts);
+        this.setState({ feed: posts });
+      });
     },
     getUserPosts: () => {
       PostAPIService.getUserPosts().then((posts) => this.setState({ posts }));
@@ -38,10 +41,11 @@ class App extends Component {
       if (this.state.newPost !== "") {
         const newPost = {
           content: this.state.newPost,
+          likes: this.state.like,
         };
         PostAPIService.postPost(newPost).then((data) => {
           newPost.likes = 1;
-          console.log(data);
+          // console.log(data);
           this.setState({
             feed: [data, ...this.state.posts],
             newPost: "",
@@ -51,11 +55,24 @@ class App extends Component {
       }
     },
     addLike: (post_id, likes, user_id) => {
-      const post = this.state.posts.find((p) => p.id === post_id) || {};
+      const like = likes + 1;
+      // const post = this.state.posts.find((p) => p.id === post_id) || {};
       // post.likes ? post.likes++ : (post.likes = 1);
-      PostAPIService.postLikes(post_id, likes, user_id);
+      PostAPIService.postLikes(post_id, like, user_id);
+      const f = this.state.posts.map((p) => {
+        if (p.id === post_id) {
+          console.log(p);
+          const update = {
+            ...p,
+            likes: like,
+          };
+          return update;
+        }
+        return p;
+      });
+      // this.state.getPosts();
       this.setState({
-        posts: this.state.posts.map((p) => (p.id === post_id ? post : p)),
+        feed: f,
       });
     },
     deletePost: (postId) => {
