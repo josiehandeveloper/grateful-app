@@ -9,3 +9,13 @@
 .footer-wrap {
   flex: 1;
 }
+
+@media all and (max-width: 500px) {
+  .footer-container {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    text-align: center;
+  }
+}

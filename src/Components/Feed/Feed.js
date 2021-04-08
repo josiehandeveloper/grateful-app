@@ -1,7 +1,6 @@
 import React from "react";
 import Context from "../../Context";
 import "./Feed.css";
-import PostAPIService from "../../services/post-api-service";
 import TokenService from "../../services/token-service";
 
 export default class Feed extends React.Component {

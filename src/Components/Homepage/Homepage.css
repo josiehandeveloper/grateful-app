@@ -91,10 +91,10 @@
   .about ul li {
     font-size: 15px;
     font-weight: 200;
+    margin-right: -4em;
   }
 
   .about ul {
     margin-left: -4rem;
-    margin-right: -4rem;
   }
 }
