@@ -11,19 +11,20 @@
   display: flex;
   border-radius: 10px;
   border: 1px #a8978c;
-  width: 20%;
+  width: 25%;
   align-items: center;
   justify-content: center;
   margin-top: 1.5em;
   margin-left: 11rem;
-  padding: 7px 0px;
+  padding: 8px 15px;
   font-size: 0.9em;
   font-weight: 100;
   letter-spacing: 1px;
   cursor: pointer;
   transition: color 250ms;
   background-color: #a8978c;
-  padding-left: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1em;
 }
 
 @media all and (max-width: 500px) {

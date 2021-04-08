@@ -46,6 +46,7 @@ class App extends Component {
           newPost.likes = 1;
           this.setState({
             feed: [data, ...this.state.posts],
+            posts: [data, ...this.state.posts],
             newPost: "",
           });
         });
