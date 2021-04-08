@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -9rem;
+  margin-top: -2rem;
   margin-bottom: 2rem;
 }
 
@@ -24,4 +24,15 @@
   transition: color 250ms;
   background-color: #a8978c;
   padding-left: 0.5rem;
+}
+
+@media all and (max-width: 500px) {
+  .posts {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -2rem;
+    margin-bottom: 2rem;
+  }
 }
