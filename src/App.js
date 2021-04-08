@@ -25,7 +25,6 @@ class App extends Component {
     // then puts them into state/context
     getPosts: () => {
       PostAPIService.getPosts().then((posts) => {
-        console.log(posts);
         this.setState({ feed: posts });
       });
     },
@@ -45,12 +44,10 @@ class App extends Component {
         };
         PostAPIService.postPost(newPost).then((data) => {
           newPost.likes = 1;
-          // console.log(data);
           this.setState({
             feed: [data, ...this.state.posts],
             newPost: "",
           });
-          console.log(data);
         });
       }
     },
@@ -61,7 +58,6 @@ class App extends Component {
       PostAPIService.postLikes(post_id, like, user_id);
       const f = this.state.posts.map((p) => {
         if (p.id === post_id) {
-          console.log(p);
           const update = {
             ...p,
             likes: like,

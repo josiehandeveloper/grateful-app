@@ -25,9 +25,6 @@ export default class Feed extends React.Component {
                   key={key}
                   className="like-btn"
                   onClick={() => {
-                    // const like = post.likes + 1;
-                    // console.log(post);
-                    // console.log(like);
                     this.context.addLike(post.id, post.likes, post.user_id);
                     // PostAPIService.getPosts();
                     // this.context.getPostLikes();
