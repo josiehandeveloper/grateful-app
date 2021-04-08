@@ -16,8 +16,8 @@
   font-size: 60px;
   letter-spacing: 4px;
   text-align: left;
-  margin-left: 2rem;
-  margin-top: -33rem;
+  margin-left: 11rem;
+  margin-top: 29rem;
   font-weight: 200;
 }
 
@@ -63,20 +63,22 @@
     margin: 0;
     overflow-x: hidden;
   }
+
+  .container h1 {
+    color: white;
+    font-family: Lato;
+    font-size: 35px;
+    letter-spacing: 4px;
+    text-align: left;
+    margin-left: 5rem;
+    margin-top: 13rem;
+    font-weight: 200;
+  }
   .img {
     height: 50vh;
     width: 100%;
   }
-  .container h1 {
-    color: white;
-    position: absolute;
-    font-family: Lato;
-    font-size: 30px;
-    letter-spacing: 4px;
-    text-align: left;
-    margin-right: auto;
-    margin-top: 2rem;
-  }
+
   .about h2 {
     color: #a8978c;
     font-family: Lato;
