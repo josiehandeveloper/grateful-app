@@ -45,7 +45,7 @@ class App extends Component {
         PostAPIService.postPost(newPost).then((data) => {
           newPost.likes = 1;
           this.setState({
-            feed: [data, ...this.state.posts],
+            feed: [newPost, ...this.state.posts],
             posts: [data, ...this.state.posts],
             newPost: "",
           });
