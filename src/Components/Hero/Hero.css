@@ -1,0 +1,69 @@
+.hero__container {
+  background-image: url(../../images/grateful-sign.jpg);
+  object-fit: contain;
+  background-position: center;
+  background-size: cover;
+  height: 70vh;
+  background-repeat: no-repeat;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.hero__info {
+  background-color: #bfd3da;
+  width: 350px;
+  padding: 10px;
+  margin-top: 25em;
+  color: white;
+}
+
+.hero__info > button {
+  font-size: 30px;
+  font-family: Lato;
+  font-weight: 400;
+  background-color: #bfd3da;
+  border: 2px solid black;
+}
+
+.gratitude__Btn:hover {
+  color: white;
+}
+
+@media all and (max-width: 500px) {
+  .hero__container {
+    background-image: url(../../images/grateful-sign.jpg);
+    object-fit: contain;
+    background-position: center;
+    background-size: cover;
+    height: 70vh;
+    background-repeat: no-repeat;
+    padding-bottom: 50px;
+    position: relative;
+  }
+  .hero__info > button {
+    font-size: 26px;
+    font-family: Lato;
+    font-weight: 400;
+    background-color: #bfd3da;
+    border: 2px solid black;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .hero__info > button {
+    display: flex;
+    font-size: 20px;
+    font-family: Lato;
+    font-weight: 400;
+    align-items: center;
+    background-color: #bfd3da;
+    border: 2px solid black;
+  }
+  .hero__info {
+    background-color: #bfd3da;
+    width: 270px;
+    padding: 10px;
+    margin-top: 25em;
+    color: white;
+  }
+}
