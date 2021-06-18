@@ -33,6 +33,8 @@ export default class Login extends React.Component {
       <div className="wrapper">
         <div className="form-wrapper">
           <h1>Login</h1>
+          <p>Demo Email: testuser@testuser.com</p>
+          <p>Demo Password: Testuser1!</p>
           <form className="login_form" onSubmit={this.handleLogin}>
             {this.state.error && <p className="error">{this.state.error}</p>}
 
