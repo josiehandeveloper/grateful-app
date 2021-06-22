@@ -19,7 +19,6 @@ class App extends Component {
     newPost: "",
     feed: [],
     posts: [],
-    likes: [],
     setNewPost: (e) => this.setState({ newPost: e.target.value }),
     // takes the current user's token and sends it to the BE to get all of their posts
     // then puts them into state/context
@@ -31,19 +30,14 @@ class App extends Component {
     getUserPosts: () => {
       PostAPIService.getUserPosts().then((posts) => this.setState({ posts }));
     },
-    getPostLikes: () => {
-      PostAPIService.getPostLikes().then((likes) => this.setState({ likes }));
-    },
 
     handleSubmit: (e) => {
       e.preventDefault();
       if (this.state.newPost !== "") {
         const newPost = {
           content: this.state.newPost,
-          likes: this.state.like,
         };
         PostAPIService.postPost(newPost).then((data) => {
-          newPost.likes = 1;
           this.setState({
             feed: [newPost, ...this.state.posts],
             posts: [data, ...this.state.posts],
@@ -52,26 +46,7 @@ class App extends Component {
         });
       }
     },
-    addLike: (post_id, likes, user_id) => {
-      const like = likes + 1;
-      // const post = this.state.posts.find((p) => p.id === post_id) || {};
-      // post.likes ? post.likes++ : (post.likes = 1);
-      PostAPIService.postLikes(post_id, like, user_id);
-      const f = this.state.posts.map((p) => {
-        if (p.id === post_id) {
-          const update = {
-            ...p,
-            likes: like,
-          };
-          return update;
-        }
-        return p;
-      });
-      // this.state.getPosts();
-      this.setState({
-        feed: f,
-      });
-    },
+
     deletePost: (postId) => {
       fetch(`${config.API_ENDPOINT}/api/dashboard`, {
         headers: {
@@ -93,7 +68,6 @@ class App extends Component {
     if (TokenService.hasAuthToken()) {
       this.state.getPosts();
       this.state.getUserPosts();
-      // this.state.getPostLikes();
     }
   }
   render() {

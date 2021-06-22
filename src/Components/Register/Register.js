@@ -33,55 +33,59 @@ export default class Register extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div className="register-form-wrapper">
-          <form onSubmit={this.handleSubmit}>
-            {this.state.error && <p className="error">{this.state.error}</p>}
-            <h1>Register</h1>
+      <div className="register__page">
+        <div className="register__container">
+          <img className="register__img" alt="" />
+          <div className="registerform__container">
+            <div className="register__wrapper">
+              <form onSubmit={this.handleSubmit}>
+                {this.state.error && (
+                  <p className="error">{this.state.error}</p>
+                )}
+                <h1>Register</h1>
 
-            <label htmlFor="register_username">USERNAME</label>
-            <input
-              className="register_username"
-              type="username"
-              id="register_username"
-              name="username"
-              required=""
-            />
+                <label htmlFor="register_username">USERNAME</label>
+                <input
+                  className="register__username"
+                  type="username"
+                  id="register_username"
+                  name="username"
+                  required=""
+                />
 
-            <label htmlFor="register_email">EMAIL</label>
-            <input
-              className="email"
-              type="email"
-              id="register_email"
-              name="email"
-              required=""
-            />
+                <label htmlFor="register_email">EMAIL</label>
+                <input
+                  className="email"
+                  type="email"
+                  id="register__email"
+                  name="email"
+                  required=""
+                />
 
-            <div>
-              <label htmlFor="register_password">PASSWORD</label>
-              <input
-                type="password"
-                className="register_password"
-                id="register_password"
-                name="password"
-                required=""
-              />
+                <label htmlFor="register_password">PASSWORD</label>
+                <input
+                  type="password"
+                  className="register__password"
+                  id="register_password"
+                  name="password"
+                  required=""
+                />
+
+                <label htmlFor="confirm"> CONFIRM PASSWORD</label>
+                <input
+                  type="password"
+                  className="confirm__password"
+                  id="confirm__password"
+                  name="confirmPassword"
+                  required=""
+                />
+
+                <button className="submit" type="submit" id="register_button">
+                  SUBMIT
+                </button>
+              </form>
             </div>
-            <div>
-              <label htmlFor="confirm"> CONFIRM PASSWORD</label>
-              <input
-                type="password"
-                className="confirm_password"
-                id="confirm_password"
-                name="confirmPassword"
-                required=""
-              />
-            </div>
-
-            <button className="submit" type="submit" id="register_button">
-              SUBMIT
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     );

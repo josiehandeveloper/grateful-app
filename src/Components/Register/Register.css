@@ -1,28 +1,45 @@
-.wrapper {
-  height: 120vh;
-  width: 100%;
+.register__page {
+  padding: 3em;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-size: cover;
-  background-position: center;
-  background-image: url(../../images/homepage.png);
 }
 
-.register-form-wrapper {
-  width: 350px;
-  height: 420px;
+.register__container {
+  display: flex;
+  height: 65vh;
+  box-shadow: 0px 4px 20px #555;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 700px;
+}
+
+.register__img {
+  width: 50%;
+  background-image: url(../../images/grateful-sign.jpg);
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.registerform__container {
+  padding: 0 20px;
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+
+.register__wrapper {
+  width: 300px;
+  height: 400px;
   display: flex;
   flex-direction: column;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 20px #555;
+  padding: 20px 40px;
   background-color: #ffffff;
 }
 
 form {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
@@ -36,29 +53,29 @@ h1 {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.register_email,
-.register_username .register_password .confirm_password {
+.register__email,
+.register__username .register__password .confirm__password {
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
 }
 
-.register_username {
+.register__username {
   width: 100%;
   margin-bottom: 15px;
 }
-.register_email {
+.register__email {
   width: 100%;
   margin-bottom: 15px;
 }
 
-.register_password {
-  width: 140%;
+.register__password {
+  width: 100%;
   margin-bottom: 15px;
 }
 
-.confirm_password {
-  width: 112%;
+.confirm__password {
+  width: 100%;
   margin-bottom: 15px;
 }
 
@@ -95,23 +112,95 @@ input {
   color: #383838;
 }
 
-@media all and (max-width: 500px) {
-  .register-form-wrapper {
-    width: 225px;
+@media all and (max-width: 750px) {
+  .register__wrapper {
+    width: 300px;
+    height: 400px;
     display: flex;
     flex-direction: column;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 50px #555;
+    padding: 10px 20px;
     background-color: #ffffff;
   }
-  .register_password {
-    width: 90%;
-    margin-bottom: 15px;
+  .registerform__container {
+    width: 50%;
+    display: flex;
+    padding: 0 5px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .register__page {
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .register__container {
+    display: flex;
+    height: 65vh;
+    box-shadow: 0px 4px 20px #555;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 400px;
+  }
+  .register__wrapper {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    background-color: #ffffff;
   }
 
-  .confirm_password {
-    width: 90%;
-    margin-bottom: 15px;
+  .register__img {
+    background-image: url(../../images/grateful-sign.jpg);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    object-fit: contain;
+    width: 0%;
+  }
+  .registerform__container {
+    width: 100%;
+    display: flex;
+    padding: 0 0px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .register__container {
+    display: flex;
+    height: 75vh;
+    box-shadow: 0px 4px 20px #555;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 400px;
+  }
+  .register__email,
+  .register__username .register__password .confirm__password {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  .register__wrapper {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    background-color: #ffffff;
+  }
+  h1 {
+    margin: 5px;
+    text-align: center;
+    width: 100%;
+    color: #111;
+    font-weight: lighter;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
 }
